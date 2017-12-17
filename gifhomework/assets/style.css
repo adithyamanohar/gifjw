@@ -1,7 +1,10 @@
- #buttons-view {
- 	width: 100%;
- }
+.gifs{
+	display: inline-block;
+	padding-right: 10px;
+}
 
- body {
- 	background-color: red;
- }
+.superhero{
+	margin-right: 5px;
+	margin-top: 10px;
+}
+
