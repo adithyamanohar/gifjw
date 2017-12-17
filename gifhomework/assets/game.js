@@ -51,9 +51,8 @@ $.ajax({
 	});// end of AJAX
 
 } // end of displaySuperheroGif
-
 function mkButton() {
-	$('#button-view').empty();
+	$('#buttons-view').empty();
 
 	// loop through superhero array
 	for (var i = 0; i < initialSuperhero.length; i++) {
@@ -65,8 +64,41 @@ function mkButton() {
 
 }// function end?
 
+// need an add superhero button
+// ask Adrain for help 
+
+$('#add-Superhero').on("click", function(event) {
+	event.preventDefault();
+	var superhero = $('#superheroInput').val().trim();
+	initialSuperhero.push(superhero);
+	mkButton();
+});
+
+// event listener required?
+$(document).on("click", ".superhero", displaySuperheroGif());
 
 
+//still need to make them animate. 
+
+$(document).on("click", ".gif", function() {
+var state = $(this).attr("data-state");
+	var animateUrl = $(this).attr("data-animate");
+	var stillUrl = $(this).attr("data-still");
+
+	if (state === "still") {
+		$(this).attr("src", animateUrl);
+		$(this).attr("data-state", "animate");
+	}
+
+	if (state === "animate") {
+		$(this).attr("src", stillUrl);
+		$(this).attr("data-state", "still")
+	}
+
+});
+
+
+mkButton();
 
 
 
